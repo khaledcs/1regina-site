@@ -1,175 +1,1386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khaled for URSA President</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f5f5f5; color:#333; }
-    header { background:#004aad; color:white; padding:20px; text-align:center; }
-    nav { background:#003580; padding:10px; text-align:center; }
-    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
-    section { padding:40px 20px; max-width:900px; margin:auto; }
-        .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prairie Escapes — Regina Day Tours</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .card {
-        background: white;
-        padding: 25px;
-        border-radius: 8px;
-        border: 4px solid transparent;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-    
-    .cta { text-align:center; margin-top:30px; }
-    .cta button { padding:15px 25px; font-size:18px; background:#004aad; color:white; border:none; border-radius:8px; cursor:pointer; }
-    footer { background:#222; color:white; text-align:center; padding:15px; }
-  </style>
+  :root {
+    --wheat: #F5EFE0;
+    --clay: #C4854A;
+    --clay-dark: #9C5E2B;
+    --sky: #3B6EA5;
+    --sky-dark: #24497A;
+    --sage: #5A7A5C;
+    --ink: #1E1A14;
+    --mist: #F9F5EE;
+    --border: rgba(30,26,20,0.12);
+    --gold: #D4A853;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--mist);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 6vw 6vw;
+    background:
+      linear-gradient(to bottom, rgba(30,26,20,0.1) 0%, rgba(30,26,20,0.65) 100%),
+      url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Qu%27Appelle_Valley.jpg/1280px-Qu%27Appelle_Valley.jpg') center/cover no-repeat;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(196,133,74,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 6vw;
+    z-index: 10;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #fff;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: #fff; }
+
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 3rem;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.35);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #fff;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .pill-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .hero-scroll {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .hero-scroll:hover { color: rgba(255,255,255,0.9); }
+
+  .scroll-line {
+    width: 40px; height: 1px;
+    background: rgba(255,255,255,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.9);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* ── STATS BAR ──────────────────────────────────── */
+  .stats-bar {
+    background: var(--ink);
+    padding: 1.5rem 6vw;
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .stat {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    color: var(--gold);
+    font-weight: 700;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION SHARED ─────────────────────────────── */
+  .section { padding: 6rem 6vw; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+
+  .section-title em { font-style: italic; color: var(--clay); }
+
+  /* ── FILTER TABS ─────────────────────────────────── */
+  .filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-self: flex-end;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(30,26,20,0.6);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+
+  .filter-btn:hover:not(.active) {
+    border-color: var(--clay);
+    color: var(--clay);
+  }
+
+  /* ── TOUR GRID ───────────────────────────────────── */
+  .tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tour-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tour-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(30,26,20,0.12);
+  }
+
+  .tour-card.featured {
+    border: 2px solid var(--clay);
+  }
+
+  .card-image-wrap {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .card-image-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .tour-card:hover .card-image-wrap img {
+    transform: scale(1.04);
+  }
+
+  .card-tag {
+    position: absolute;
+    top: 12px; left: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+  }
+
+  .tag-nature { background: rgba(90,122,92,0.9); color: #fff; }
+  .tag-culture { background: rgba(59,110,165,0.9); color: #fff; }
+  .tag-family { background: rgba(196,133,74,0.9); color: #fff; }
+
+  .card-dist {
+    position: absolute;
+    bottom: 12px; right: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: rgba(30,26,20,0.75);
+    color: #fff;
+    backdrop-filter: blur(6px);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  .card-body {
+    padding: 1.25rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .card-subtitle {
+    font-size: 0.8rem;
+    color: rgba(30,26,20,0.5);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-desc {
+    font-size: 0.875rem;
+    color: rgba(30,26,20,0.7);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+
+  .stops-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(30,26,20,0.4);
+    margin-bottom: 6px;
+  }
+
+  .stops-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 1.25rem;
+  }
+
+  .stop-chip {
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    background: var(--wheat);
+    color: rgba(30,26,20,0.65);
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    gap: 12px;
+  }
+
+  .price-block .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--clay-dark);
+  }
+
+  .price-block .price-sub {
+    font-size: 0.7rem;
+    color: rgba(30,26,20,0.45);
+    display: block;
+  }
+
+  .meta-chips {
+    display: flex;
+    gap: 6px;
+  }
+
+  .meta-chip {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: var(--wheat);
+    color: rgba(30,26,20,0.65);
+  }
+
+  .card-cta {
+    padding: 9px 20px;
+    border-radius: 8px;
+    border: 1.5px solid var(--ink);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+
+  .card-cta:hover {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  /* ── HOW IT WORKS ──────────────────────────────── */
+  .how-section {
+    background: var(--wheat);
+    border-top: 1px solid rgba(30,26,20,0.08);
+    border-bottom: 1px solid rgba(30,26,20,0.08);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .step {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .step::before {
+    content: attr(data-num);
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(196,133,74,0.15);
+    position: absolute;
+    top: -1rem; left: -0.5rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .step-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .step-desc {
+    font-size: 0.85rem;
+    color: rgba(30,26,20,0.6);
+    line-height: 1.65;
+  }
+
+  /* ── PRICING TABLE ─────────────────────────────── */
+  .pricing-section { background: var(--ink); }
+
+  .pricing-section .section-title { color: #fff; }
+  .pricing-section .section-eyebrow { color: var(--gold); }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .pricing-table thead th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .pricing-table tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.15s;
+  }
+
+  .pricing-table tbody tr:hover { background: rgba(255,255,255,0.04); }
+
+  .pricing-table tbody td {
+    padding: 1rem 1rem;
+    color: rgba(255,255,255,0.8);
+    vertical-align: middle;
+  }
+
+  .pricing-table .tour-name-cell {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .pricing-table .price-cell {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .cat-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 500;
+  }
+
+  .cat-nature { background: rgba(90,122,92,0.25); color: #8FBC8F; }
+  .cat-culture { background: rgba(59,110,165,0.25); color: #90B8E8; }
+  .cat-family { background: rgba(196,133,74,0.25); color: #E0B878; }
+
+  /* ── MAP SECTION ───────────────────────────────── */
+  .map-section { background: #fff; }
+
+  .map-embed {
+    width: 100%;
+    height: 420px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+
+  .map-embed iframe {
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .location-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .loc-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--mist);
+  }
+
+  .loc-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--clay);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+  }
+
+  .loc-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .loc-dist {
+    font-size: 0.78rem;
+    color: rgba(30,26,20,0.5);
+  }
+
+  /* ── GALLERY ───────────────────────────────────── */
+  .gallery-section { background: var(--wheat); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 12px;
+    margin-top: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gallery-item:first-child {
+    grid-row: 1 / 3;
+  }
+
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-item:hover img { transform: scale(1.05); }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(30,26,20,0.75));
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.9);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .gallery-item:hover .gallery-caption { opacity: 1; }
+
+  /* ── CTA ────────────────────────────────────────── */
+  .cta-section {
+    background: var(--clay);
+    text-align: center;
+    padding: 5rem 6vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(30,26,20,0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .btn-primary {
+    padding: 14px 32px;
+    border-radius: 8px;
+    border: none;
+    background: #fff;
+    color: var(--clay-dark);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--wheat);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    padding: 14px 32px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    background: transparent;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #fff;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    padding: 3rem 6vw 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.65;
+  }
+
+  .footer-heading {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links { list-style: none; }
+
+  .footer-links li { margin-bottom: 0.5rem; }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.9); }
+
+  .footer-bottom {
+    background: var(--ink);
+    padding: 1.25rem 6vw;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-note {
+    font-size: 0.75rem;
+    color: var(--gold);
+  }
+
+  /* ── MODAL ──────────────────────────────────────── */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(30,26,20,0.65);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-backdrop.open { display: flex; }
+
+  .modal {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 560px;
+    width: 100%;
+    overflow: hidden;
+    animation: modalIn 0.25s ease;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(12px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .modal-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .modal-body { padding: 1.75rem 2rem 2rem; }
+
+  .modal-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+
+  .modal-sub {
+    font-size: 0.85rem;
+    color: rgba(30,26,20,0.5);
+    margin-bottom: 1rem;
+  }
+
+  .modal-desc {
+    font-size: 0.9rem;
+    color: rgba(30,26,20,0.7);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .modal-meta {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--mist);
+    border-radius: 10px;
+  }
+
+  .modal-meta-item { text-align: center; }
+
+  .modal-meta-label {
+    font-size: 0.68rem;
+    color: rgba(30,26,20,0.45);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .modal-meta-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--clay-dark);
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  .modal-close {
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(30,26,20,0.6);
+    cursor: pointer;
+  }
+
+  .modal-book {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    background: var(--clay);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .modal-book:hover { background: var(--clay-dark); }
+
+  .hidden { display: none; }
+
+  /* ── ANIMATIONS ─────────────────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    footer { grid-template-columns: 1fr; gap: 2rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px 160px; }
+    .gallery-item:first-child { grid-row: auto; }
+    .nav-links { display: none; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat { min-width: 45%; }
+  }
+</style>
 </head>
 <body>
 
-<header>
-  <h1>Khaled for URSA President</h1>
-  <p>Your Voice. Your Future. Your Campus.</p>
-</header>
+<!-- HERO -->
+<section class="hero">
+  <nav class="nav">
+    <a href="#" class="nav-logo">Prairie Escapes</a>
+    <ul class="nav-links">
+      <li><a href="#tours">Tours</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+  </nav>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#whyme">Why I'm Running</a>
-  <a href="#platform">Platform</a>
-  <a href="#accountibility">Accountibility</a>
-    <a href="#campaignPoster"> Poster</a>
-
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>I am Khaled, a student at the University of Regina and a passionate advocate for student success. 
-      With experience in leadership, volunteering, and student engagement, I am committed to making real improvements 
-      for our campus community.
-      </p>
-      <p>
-  For full bio, please visit my 
-  <a href="https://www.linkedin.com/in/khaledcs/" target="_blank" rel="noopener noreferrer">
-    LinkedIn profile
-  </a>.
-</p>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Regina, Saskatchewan</span>
+    <h1 class="hero-title">Discover the <em>Prairie</em><br>beyond the city</h1>
+    <p class="hero-sub">Curated day tours within 1 hour of Regina: lakeside parks, historic sites, and wild valley landscapes for up to 4 guests.</p>
+    <div class="hero-pills">
+      <span class="pill"><span class="pill-dot"></span> Max 1 hr drive from Regina</span>
+      <span class="pill"><span class="pill-dot"></span> Up to 4 guests</span>
+      <span class="pill"><span class="pill-dot"></span> $30 CAD / hr</span>
+    </div>
+    <a href="#tours" class="hero-scroll">
+      <span class="scroll-line"></span>
+      Explore packages
+    </a>
   </div>
 </section>
-<section id="whyme">
-  <h1>🎯 Why I’m Running for URSA President</h1>
 
-<div class="container">
-
-    <!-- Student Support -->
-    <div class="card blue">
-       <p> I’m running for URSA President because I’ve experienced, and seen around me, how many students are quietly struggling, whether it’s managing finances, dealing with academic issues, or just trying to find the right support on campus.
-<br/><br/>
-When I talk to students, I often hear the same thing: “We don’t know where to go,” or “Support exists, but it’s hard to access.” That really stayed with me. It made me realize that we don’t just need more support, we need better connection, better communication, and real action.
-<br/><br/>
-I decided to run because I genuinely believe we can do better as a student community. <b>URSA</b> should be more visible, more transparent, and more focused on what students actually need in their daily lives.
-<br/><br/>
-For me, this isn’t just about a position, <b>it’s about making sure every student feels supported, heard, and part of a stronger, more connected campus</b>.
-         </p>
-    </div>
-  </div>
-</section>
-<section id="platform">
-  <h1>My Priorities</h1>
-
-<div class="container">
-
-    <!-- Student Support -->
-    <div class="card blue">
-        <h2>🎓 Student Support & Advocacy</h2>
-        <ul>
-            <li>Academic Dispute Support & Advocacy</li>
-            <li>Student Health & Academic Support</li>
-            <li>Tax Filing Support</li>
-            <li>Lawyer Support</li>
-        </ul>
-    </div>
-
-    <!-- Financial Support -->
-    <div class="card green">
-        <h2>💰 Financial & Essential Support</h2>
-        <ul>
-            <li>Emergency Bursary Support</li>
-          <li>Microgrants</li>
-          <li>Large Grants</li>
-          <li>Scholarship Support</li>
-            <li>Affordable Food Boxes</li>
-            <li>Food Support & Community Fridge</li>
-            <li>Cheaper Bus Pass</li>
-        </ul>
-    </div>
-
-    <!-- Community -->
-    <div class="card yellow">
-        <h2>🤝 Community & Campus Life</h2>
-        <ul>
-            <li>Empowering Campus Groups</li>
-            <li>Safe & Inclusive Campus Environment</li>
-            <li>Accommodation Support</li>
-        </ul>
-    </div>
-
-    <!-- Career & Growth -->
-    <div class="card pink">
-        <h2>🚀 Career & Opportunities</h2>
-        <ul>
-            <li>Career & Networking Opportunities</li>
-            <li>Better Health Benefits</li>
-        </ul>
-    </div>
-
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">6</span><span class="stat-label">Tour packages</span></div>
+  <div class="stat"><span class="stat-num">4</span><span class="stat-label">Max guests</span></div>
+  <div class="stat"><span class="stat-num">$30</span><span class="stat-label">CAD / hr </span></div>
+  <div class="stat"><span class="stat-num">&lt;1hr</span><span class="stat-label">From Regina</span></div>
+  <div class="stat"><span class="stat-num">3–5</span><span class="stat-label">Hours per tour</span></div>
 </div>
+
+<!-- TOURS SECTION -->
+<section class="section" id="tours">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Our packages</p>
+      <h2 class="section-title">Choose your <em>escape</em></h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterTours('all',this)">All</button>
+      <button class="filter-btn" onclick="filterTours('nature',this)">Nature</button>
+      <button class="filter-btn" onclick="filterTours('culture',this)">Culture</button>
+      <button class="filter-btn" onclick="filterTours('family',this)">Family</button>
+    </div>
+  </div>
+
+  <div class="tours-grid" id="tours-grid"></div>
 </section>
 
-  <section id="accountibility">
-  <h1>📊 Transparency & Accountability</h1>
-
-<div class="container">
-
-    <!-- Student Support -->
-    <div class="card blue">
-       <p> I am committed to bringing full transparency to URSA’s financial decisions, including costs, 
-         expenditures, scholarships, grants, and all existing funds. Students deserve to clearly understand how 
-         their fees are being used and how resources are allocated. 
-         <br/><br/>
-         I will work to publish regular, easy-to-understand 
-         financial reports, ensure open communication, and create opportunities for student input in funding decisions. 
-         My goal is to build trust by making URSA’s finances more visible, accountable, and aligned with the real needs of students.
-         </p>
+<!-- HOW IT WORKS -->
+<section class="section how-section" id="how">
+  <div>
+    <p class="section-eyebrow">Simple process</p>
+    <h2 class="section-title">How it <em>works</em></h2>
+  </div>
+  <div class="steps-grid">
+    <div class="step fade-up" data-num="01">
+      <div class="step-icon">📋</div>
+      <h3 class="step-title">Pick a package</h3>
+      <p class="step-desc">Browse our six curated tours and find one that matches your group's interests: nature, heritage, or family fun.</p>
+    </div>
+    <div class="step fade-up" data-num="02">
+      <div class="step-icon">📅</div>
+      <h3 class="step-title">Book your date</h3>
+      <p class="step-desc">Select your preferred date and confirm guest numbers. We accommodate up to 4 guests per booking.</p>
+    </div>
+    <div class="step fade-up" data-num="03">
+      <div class="step-icon">🚗</div>
+      <h3 class="step-title">We handle the rest</h3>
+      <p class="step-desc">Your guide picks you up in Regina and handles all navigation. Just enjoy the Saskatchewan scenery.</p>
+    </div>
+    <div class="step fade-up" data-num="04">
+      <div class="step-icon">✨</div>
+      <h3 class="step-title">Pay on return</h3>
+      <p class="step-desc">Charged at $30 CAD per hour. Simple, transparent pricing, no hidden fees.</p>
     </div>
   </div>
 </section>
-  
-<section class="cta">
-  <h2>Voting Period: April 8 - 10</h2>
+
+<!-- PRICING TABLE -->
+<section class="section pricing-section" id="pricing">
+  <div>
+    <p class="section-eyebrow">Transparent pricing</p>
+    <h2 class="section-title">All-in <em>rates</em></h2>
+  </div>
+  <table class="pricing-table">
+    <thead>
+      <tr>
+        <th>Tour</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>Per person</th>
+        <th>Full group (4)</th>
+      </tr>
+    </thead>
+    <tbody id="pricing-tbody"></tbody>
+  </table>
 </section>
-<section id="campaignPoster">
-  <h2>Campaign Poster</h2>
-  <div class="card" style="text-align:center;">
-    
-    <img src="Main Campaign Poster With QR.png" alt="Khaled>  </div>
+
+<!-- MAP -->
+<section class="section map-section" id="map">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Destinations</p>
+      <h2 class="section-title">All within <em>reach</em></h2>
+    </div>
+  </div>
+
+  <div class="location-cards" id="location-cards"></div>
 </section>
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>Email: mhh711@uregina.ca</p>
-    <p>Phone: 639-554-4471</p>
+
+<!-- GALLERY -->
+<section class="section gallery-section" id="gallery">
+  <div>
+    <p class="section-eyebrow">The landscape</p>
+    <h2 class="section-title">Saskatchewan <em>in pictures</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Qu%27Appelle_Valley.jpg/1280px-Qu%27Appelle_Valley.jpg" alt="Qu'Appelle Valley" loading="lazy">
+      <div class="gallery-caption">Qu'Appelle Valley — Tour 1</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Saskatchewan_Legislative_Building_2014.jpg/1280px-Saskatchewan_Legislative_Building_2014.jpg" alt="Legislative Building" loading="lazy">
+      <div class="gallery-caption">Legislative Building</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/RCMP_Heritage_Centre_%28Regina%2C_Saskatchewan%29.jpg/1200px-RCMP_Heritage_Centre_%28Regina%2C_Saskatchewan%29.jpg" alt="RCMP Heritage Centre" loading="lazy">
+      <div class="gallery-caption">RCMP Heritage Centre</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZO1E7TxUrlzkDQ2N1JaPr2owFVqyFSALirTDuB7dtve4HlmZNt6lulA8pgpb7VyukA6c5pIix_qv1GAWvK_DHRgqqaL5GOJAeXz2-7YUDCQt3qBTv8wWMfQpiwp9h9w8kM86f1cohjE_FK0=s800" alt="Echo Valley Park" loading="lazy">
+      <div class="gallery-caption">Echo Valley Park</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://lh3.googleusercontent.com/place-photos/AJRVUZOWrTFlaJxzjg2q9oLiOvmHf0zOnkCKGSiq58pNVHvLiw7bIqMLQyb97b5oQoDW-isKF9fJvXa_VOfDppRaL2afPNRpOS2Xj43rQQ-pqrge3N98GiJk-HJ-t4itN7R-AQwTL5f5k_DbV9dl=s800" alt="Buffalo Pound Park" loading="lazy">
+      <div class="gallery-caption">Buffalo Pound Lake</div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Khaled Campaign | University of Regina Student Association</p>
-</footer>
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Ready to explore<br>Saskatchewan?</h2>
+  <p class="cta-sub">Book any tour for up to 4 guests, starting at just $30 CAD per hr.</p>
+  <div class="cta-buttons">
+    <a href="#tours" class="btn-primary">Browse all tours</a>
+    <a href="mailto:tour@1sk.ca" class="btn-outline">Contact us</a>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Prairie Escapes</div>
+    <p class="footer-tagline">Curated day tours within 1 hour of Regina, Saskatchewan. Up to 4 guests · $30 CAD/hr · Year-round bookings.</p>
+  </div>
+  <div>
+    <p class="footer-heading">Tours</p>
+    <ul class="footer-links">
+      <li><a href="#tours">Qu'Appelle Valley</a></li>
+      <li><a href="#tours">Buffalo Pound Lake</a></li>
+      <li><a href="#tours">Last Mountain Lake</a></li>
+      <li><a href="#tours">RCMP & Heritage</a></li>
+      <li><a href="#tours">Family Science</a></li>
+      <li><a href="#tours">Stone Hall Castle</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-heading">Info</p>
+    <ul class="footer-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="mailto:tour@1sk.ca">tour@1sk.ca</a></li>
+      <li><a href="tel:+16395544471">+1 (639) 554-4471</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">&copy; 2026 Prairie Escapes. All rights reserved.</span>
+  <span class="footer-note">Based in Regina, SK &mdash; Proudly serving Saskatchewan</span>
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-body">
+      <span class="modal-tag" id="modal-tag"></span>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-sub" id="modal-sub"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-meta">
+        <div class="modal-meta-item"><span class="modal-meta-label">Duration</span><span class="modal-meta-val" id="modal-dur"></span></div>
+        <div class="modal-meta-item"><span class="modal-meta-label">Per person</span><span class="modal-meta-val" id="modal-pp"></span></div>
+        <div class="modal-meta-item"><span class="modal-meta-label">Group of 4</span><span class="modal-meta-val" id="modal-grp"></span></div>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-close" onclick="document.getElementById('modal-backdrop').classList.remove('open')">Close</button>
+        <button class="modal-book" onclick="alert('Booking request sent! We\'ll contact you within 24 hours.')">Book this tour</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const tours = [
+  {
+    id:1, title:"Qu'Appelle Valley Explorer", subtitle:"Echo Valley Prov. Park · Fort Qu'Appelle",
+    category:"nature", featured:true, distance:"~55 min / 75 km",
+    duration:5,
+    desc:"Hike the valley rim, swim at Pasqua Lake, stroll through Fort Qu'Appelle's heritage main street, and soak in sweeping valley views at sunset.",
+    stops:["Echo Valley Prov. Park","Pasqua Lake Beach","Fort Qu'Appelle","Valley Lookout"],
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Qu%27Appelle_Valley.jpg/1280px-Qu%27Appelle_Valley.jpg"
+  },
+  {
+    id:2, title:"Buffalo Pound Lake Escape", subtitle:"Buffalo Pound Prov. Park · Moose Jaw",
+    category:"nature", featured:false, distance:"~45 min / 60 km",
+    duration:4,
+    desc:"Boat launch, mini-putt, axe throwing, swimming, and pelican spotting at one of Saskatchewan's most scenic prairie lakes.",
+    stops:["Buffalo Pound Prov. Park","Lake Viewpoint","Axe Throwing","Moose Jaw stop"],
+    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZOWrTFlaJxzjg2q9oLiOvmHf0zOnkCKGSiq58pNVHvLiw7bIqMLQyb97b5oQoDW-isKF9fJvXa_VOfDppRaL2afPNRpOS2Xj43rQQ-pqrge3N98GiJk-HJ-t4itN7R-AQwTL5f5k_DbV9dl=s800"
+  },
+  {
+    id:3, title:"Last Mountain Lake Retreat", subtitle:"Rowan's Ravine Prov. Park · Strasbourg",
+    category:"nature", featured:false, distance:"~55 min / 90 km",
+    duration:5,
+    desc:"Kayak or canoe on Canada's longest natural lake. Watch migrating birds at the oldest wildlife refuge in North America.",
+    stops:["Rowan's Ravine Park","Last Mountain Lake","Bird Sanctuary","Marina boat rental"],
+    img:"https://lh3.googleusercontent.com/place-photos/AJRVUZMHqYlLavGD2MA72cIGqDQqT7Uj0jlHh9qlaw-_TvC9JLPnKomhkU6k02FIr9lmmWj4zoLXUby8rh9NJe6SKnPf1S1_7t1Bs8hNOFfFyDK8iCYCgkcG-gcrIDbDy-3RgP66FhdhOg3mj7Q3f4o=s800"
+  },
+  {
+    id:4, title:"Regina Heritage & RCMP Day", subtitle:"RCMP Heritage Centre · Government House · Royal SK Museum",
+    category:"culture", featured:false, distance:"In-city",
+    duration:4,
+    desc:"Tour the iconic RCMP Heritage Centre, explore Victorian-era Government House, and discover prairie natural history at the Royal Saskatchewan Museum.",
+    stops:["RCMP Heritage Centre","Government House","Royal SK Museum","Wascana Lake stroll"],
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/RCMP_Heritage_Centre_%28Regina%2C_Saskatchewan%29.jpg/1200px-RCMP_Heritage_Centre_%28Regina%2C_Saskatchewan%29.jpg"
+  },
+  {
+    id:5, title:"Family Science & Park Adventure", subtitle:"Saskatchewan Science Centre · Kiwanis Waterfall Park",
+    category:"family", featured:false, distance:"In-city",
+    duration:3,
+    desc:"Interactive science exhibits for all ages — hot-air balloon, bubble stations, fire shows — then unwind at the tranquil Kiwanis Waterfall Park.",
+    stops:["SK Science Centre","Kiwanis Waterfall Park","Wascana Trails","Ice cream stop"],
+    img:"https://lh3.googleusercontent.com/places/ANXAkqEYwo4CYg-mkXgQy2aKWHgQkOyy3GtGXrCwuu38WgfFnDxjNpaZC0E_lIEprT958El44CkJutRmX9_7nYyLERX1pVMJN-IJxZM=s800"
+  },
+  {
+    id:6, title:"Stone Hall Castle & Heritage Walk", subtitle:"Stone Hall Castle · Legislative Building · Wascana",
+    category:"culture", featured:false, distance:"In-city",
+    duration:3,
+    desc:"Step inside the medieval-themed Stone Hall Castle for a guided tour, then walk the beautiful Wascana Centre past the Legislative Building.",
+    stops:["Stone Hall Castle","SK Legislative Building","Wascana Lake","Speaker's Corner"],
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Saskatchewan_Legislative_Building_2014.jpg/1280px-Saskatchewan_Legislative_Building_2014.jpg"
+  }
+];
+
+const catClass = { nature:'nature', culture:'culture', family:'family' };
+const catLabel = { nature:'Nature', culture:'Culture', family:'Family' };
+
+function renderTours(filter) {
+  const grid = document.getElementById('tours-grid');
+  const list = filter === 'all' ? tours : tours.filter(t => t.category === filter);
+  grid.innerHTML = list.map(t => {
+    const pp = t.duration * 30;
+    const grp = t.duration * 30 * 1;
+    return `
+    <div class="tour-card ${t.featured?'featured':''}" data-cat="${t.category}">
+      <div class="card-image-wrap">
+        <img src="${t.img}" alt="${t.title}" loading="lazy" onerror="this.style.background='#E8DFC8';this.style.display='flex'">
+        <span class="card-tag tag-${t.category}">${catLabel[t.category]}</span>
+        <span class="card-dist">${t.distance}</span>
+        ${t.featured ? '<span class="featured-badge">⭐ Most popular</span>' : ''}
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${t.title}</h3>
+        <p class="card-subtitle">${t.subtitle}</p>
+        <p class="card-desc">${t.desc}</p>
+        <p class="stops-label">Stops included</p>
+        <div class="stops-list">${t.stops.map(s=>`<span class="stop-chip">${s}</span>`).join('')}</div>
+        <div class="card-footer">
+          <div class="price-block">
+            <span class="price-main">$${grp} CAD</span>
+            <span class="price-sub">group of 4 · $${grp}/group</span>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;">
+            <div class="meta-chips">
+              <span class="meta-chip">${t.duration} hrs</span>
+            </div>
+            <button class="card-cta" onclick="openModal(${t.id})">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterTours(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTours(cat);
+}
+
+function renderPricing() {
+  const tbody = document.getElementById('pricing-tbody');
+  tbody.innerHTML = tours.map(t => {
+    const pp = t.duration * 30;
+    const grp = pp * 1;
+    return `<tr>
+      <td class="tour-name-cell">${t.title}</td>
+      <td><span class="cat-badge cat-${t.category}">${catLabel[t.category]}</span></td>
+      <td>${t.duration} hrs</td>
+      <td class="price-cell">$${pp}</td>
+      <td class="price-cell">$${grp}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderLocations() {
+  const locations = [
+    { num:'1', name:"Echo Valley Prov. Park", dist:"75 km · ~55 min", cat:'nature' },
+    { num:'2', name:"Buffalo Pound Prov. Park", dist:"60 km · ~45 min", cat:'nature' },
+    { num:'3', name:"Rowan's Ravine Prov. Park", dist:"90 km · ~55 min", cat:'nature' },
+    { num:'4', name:"RCMP Heritage Centre", dist:"In-city Regina", cat:'culture' },
+    { num:'5', name:"Saskatchewan Science Centre", dist:"In-city Regina", cat:'family' },
+    { num:'6', name:"Stone Hall Castle", dist:"In-city Regina", cat:'culture' },
+  ];
+  document.getElementById('location-cards').innerHTML = locations.map(l => `
+    <div class="loc-card">
+      <span class="loc-num">${l.num}</span>
+      <div>
+        <div class="loc-name">${l.name}</div>
+        <div class="loc-dist">${l.dist}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openModal(id) {
+  const t = tours.find(x => x.id === id);
+  if (!t) return;
+  const pp = t.duration * 30;
+  const grp = pp * 1;
+  document.getElementById('modal-img').src = t.img;
+  document.getElementById('modal-img').alt = t.title;
+  document.getElementById('modal-tag').textContent = catLabel[t.category];
+  document.getElementById('modal-tag').className = `modal-tag tag-${t.category}`;
+  document.getElementById('modal-title').textContent = t.title;
+  document.getElementById('modal-sub').textContent = t.subtitle;
+  document.getElementById('modal-desc').textContent = t.desc;
+  document.getElementById('modal-dur').textContent = t.duration + ' hrs';
+  document.getElementById('modal-pp').textContent = '$' + pp + ' CAD';
+  document.getElementById('modal-grp').textContent = '$' + grp + ' CAD';
+  document.getElementById('modal-backdrop').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-backdrop')) {
+    document.getElementById('modal-backdrop').classList.remove('open');
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('modal-backdrop').classList.remove('open');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 100);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+renderTours('all');
+renderPricing();
+renderLocations();
+</script>
 </body>
 </html>
